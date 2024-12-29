@@ -1,0 +1,9 @@
+{% block content %}
+<body>
+
+<p>Movies:</p>
+{% for movie in movies %}
+<p>{{movie.name}}</p>
+{% endfor %}
+</body>
+{% endblock %}

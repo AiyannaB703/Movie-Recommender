@@ -1,0 +1,17 @@
+.topnav{
+    background-color: black;
+    overflow: hidden;
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+
+}
+.topnav a{
+    color: white;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    text-decoration: none;
+    padding: 0 5px;
+}
