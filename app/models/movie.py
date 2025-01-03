@@ -1,5 +1,6 @@
 from app import db
 from flask import jsonify
+import csv
 #from flask_sqlalchemy import SQLAlchemy
 #from flask import Flask, jsonify
 #app = Flask(__name__)
@@ -13,6 +14,7 @@ class Movie(db.Model):
     name = db.Column(db.String(20), unique=False, nullable=False)
     category = db.Column(db.String(20), unique=False, nullable=False)
     description = db.Column(db.Integer, nullable=False)
+
 
     def to_dict(self):
         return {
