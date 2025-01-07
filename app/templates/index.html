@@ -5,8 +5,11 @@
 </head>
 <body>
     <div class="topnav">
-        <a href="">Home</a>
-        <a href="">Movies</a>
+        <a href="{{url_for('home')}}">Home</a>
+        <a href="{{url_for('display_movies')}}">Movies</a>
+        <div class="topnav-right">
+            <a href="{{url_for('login_page')}}">Log In</a>
+        </div>
     </div>
     {% block content %}
     {% endblock %}

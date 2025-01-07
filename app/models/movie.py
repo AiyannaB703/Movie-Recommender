@@ -1,6 +1,5 @@
 from app import db
 from flask import jsonify
-import csv
 #from flask_sqlalchemy import SQLAlchemy
 #from flask import Flask, jsonify
 #app = Flask(__name__)

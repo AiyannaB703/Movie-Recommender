@@ -12,6 +12,9 @@ def home():
 def display_movies():
     movies = Movie.display_all()
     return render_template('movies.html', movies=movies)
+@app.route('/login')
+def login_page():
+    return render_template('login.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
