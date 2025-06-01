@@ -7,7 +7,9 @@ app = create_app()
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    movies = Movie.display_all()
+
+    return render_template('index.html',movies=movies)
 
 @app.route('/movies')
 def display_movies():

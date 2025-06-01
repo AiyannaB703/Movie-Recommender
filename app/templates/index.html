@@ -10,7 +10,15 @@
         <div class="topnav-right">
             <a href="{{url_for('login_page')}}">Log In</a>
         </div>
-    </div>
+
+        
+    </div>     
+</div>
+{% if current_user.is_authenticated %}
+            <p> hi! </p>
+        {% else %}
+            <p> no</p>
+        {% endif %}
     {% block content %}
     {% endblock %}
 </body>
