@@ -12,7 +12,7 @@ class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), unique=False, nullable=False)
     category = db.Column(db.String(20), unique=False, nullable=False)
-    description = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(120), nullable=False)
 
 
     def to_dict(self):
@@ -25,6 +25,6 @@ class Movie(db.Model):
 
     @staticmethod
     def display_all():
-        movies = Movie.query.all()
-        return [movie.to_dict() for movie in movies]
+        movies = db.session.execute(db.select(Movie))
+        return [row[0] for row in movies]
 

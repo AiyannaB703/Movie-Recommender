@@ -1,15 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for
 from app import create_app, db
 from app.models.movie import Movie
+from flask_login import login_user, logout_user, current_user
 from app.models.user import User
 from flask_login import login_user
 app = create_app() 
 
 @app.route('/')
 def home():
-    movies = Movie.display_all()
-
-    return render_template('index.html',movies=movies)
+    return render_template('index.html')
 
 @app.route('/movies')
 def display_movies():
@@ -18,10 +17,12 @@ def display_movies():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
+    if current_user.is_authenticated:
+        return redirect(url_for('index.html'))
     if request.method == "POST":
             user = User.query.filter_by(username=request.form.get("username")).first()        
             if user.password == request.form.get('password'):
-                return redirect(url_for('home'))
+                return redirect(url_for('index.html'))
     return render_template('login.html')
 
 @app.route('/create_account', methods=["GET", "POST"])
